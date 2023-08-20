@@ -1,0 +1,100 @@
+<style>
+  .full-width {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .full-width:first-child {
+    margin-top: 2rem;
+  }
+  mat-form-field {
+    height: 70px;
+    font-size: 14px;
+    appearance: none;
+  }
+  mat-form-field * {
+    font-size: 14px;
+  }
+  mat-label {
+    font-size: 15px;
+  }
+  #wage {
+    display: inline-block;
+  }
+  #wage p {
+    font-size: 14px;
+
+  }
+</style>
+
+
+<div>
+
+  <div class="full-width">
+    <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
+      <mat-label>Firma</mat-label>
+      <input matInput formControlName="company">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+      <mat-label>Stellenbeschrieb</mat-label>
+      <input matInput formControlName="jobDesc">
+    </mat-form-field>
+  </div>
+
+  <div class="full-width">
+    <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
+      <mat-label>Bruttojahresgehalt bei 100%</mat-label>
+      <input matInput formControlName="salary" type="number" max="1000000">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="20">
+      <mat-label>Pensum in %</mat-label>
+      <input matInput formControlName="workload" type="number" max="100">
+    </mat-form-field>
+
+    <div id="wage" [style.margin-left.rem]="2">
+      <p>Bruttomonatslohn <br />(ohne Bonus): CHF {{ form.getWageBySalary() }}.-</p>
+    </div>
+
+  </div>
+
+  <div class="full-width">
+    <mat-form-field [style.width.%]="20" [style.margin-right.rem]="4.5">
+      <mat-label>Probezeitfrist</mat-label>
+      <mat-select formControlName="probationPeriod">
+        <mat-option value="1mo">1 Monat</mat-option>
+        <mat-option value="2mo">2 Monate</mat-option>
+        <mat-option value="3mo">3 Monate</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="20" [style.margin-right.rem]="1">
+      <mat-label>Kündigungsfrist</mat-label>
+      <mat-select formControlName="noticePeriod">
+        <mat-option value="1mo">1 Monat</mat-option>
+        <mat-option value="2mo">2 Monate</mat-option>
+        <mat-option value="3mo">3 Monate</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="full-width" [style.margin-top.rem]="2">
+    <mat-radio-group formControlName="jobType" [style.margin-right.rem]="1" >
+      <mat-label [style.margin-top.rem]="2">Anstellungsart <br /></mat-label>
+      <div [style.width.%]="100">
+        <mat-radio-button value="perm" [style.margin-right.rem]="6.5">Festanstellung</mat-radio-button>
+        <mat-form-field [style.width.%]="18">
+          <mat-label>Startdatum</mat-label>
+          <input matInput formControlName="startDate" type="date">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-radio-button value="temp" [style.margin-right.rem]="9">Befristet</mat-radio-button>
+        <mat-form-field [style.width.%]="18" *ngIf="form?.workData?.value?.jobType=='temp'" required>
+          <mat-label>Enddatum</mat-label>
+          <input matInput formControlName="endDate" type="date">
+        </mat-form-field>
+      </div>
+    </mat-radio-group>
+  </div>
+</div>
