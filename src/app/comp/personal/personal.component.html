@@ -1,0 +1,117 @@
+<style>
+  .full-width {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .full-width:first-child {
+    margin-top: 2rem;
+  }
+  mat-form-field {
+    height: 70px;
+    font-size: 14px;
+    appearance: none;
+  }
+  mat-form-field * {
+    font-size: 14px;
+  }
+  mat-label {
+    font-size: 15px;
+  }
+</style>
+
+<div>
+  <div class="full-width">
+    <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+      <mat-label>Vorname</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field [style.width.%]="40">
+      <mat-label>Nachname</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+  </div>
+
+  <div class="full-width">
+    <mat-form-field [style.width.%]="20" [style.margin-right.rem]="1">
+      <mat-label>Geschlecht</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="male">Männlich</mat-option>
+        <mat-option value="female">Weiblich</mat-option>
+        <mat-option value="diverse">Divers</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="18" [style.margin-right.rem]="2">
+      <mat-label>Geburtstag</mat-label>
+      <input matInput formControlName="birthDate" type="date">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="20" [style.margin-right.rem]="1">
+      <mat-label>Nationalität</mat-label>
+      <mat-select (valueChange)="setSelectedCountry($event)" formControlName="nationality">
+        <mat-option value="" disabled selected>Land wählen</mat-option>
+        <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field  [style.width.%]="18" *ngIf="allowance" [style.margin-right]="0">
+      <mat-label>Bewilligung</mat-label>
+      <mat-select formControlName="permit" required>
+        <mat-option value="B">B - Aufenthalt</mat-option>
+        <mat-option value="C">C - Niederlassung</mat-option>
+        <mat-option value="Ci">Ci - Aufenthalt mit Erwerb</mat-option>
+        <mat-option value="G">G - Grenzgänger</mat-option>
+        <mat-option value="L">L - Kurzaufenthalt</mat-option>
+        <mat-option value="F">F - Vorläufig</mat-option>
+        <mat-option value="N">N - Asylsuchende</mat-option>
+        <mat-option value="S">S - Schutzbedürftigte</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="full-width">
+    <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+      <mat-label>Telefonnummer</mat-label>
+      <input matInput formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="40">
+      <mat-label>E-Mail-Adresse</mat-label>
+      <input type="email" matInput formControlName="email">
+    </mat-form-field>
+  </div>
+
+  <div formGroupName="address">
+    <div class="full-width" [style.margin-top.rem]="2">
+      <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+        <mat-label>Strasse</mat-label>
+        <input matInput formControlName="street">
+      </mat-form-field>
+
+      <mat-form-field [style.width.%]="10">
+        <mat-label>Nr.</mat-label>
+        <input matInput formControlName="number">
+      </mat-form-field>
+    </div>
+
+    <div class="full-width">
+      <mat-form-field [style.width.%]="12" [style.margin-right.rem]="1.3">
+        <mat-label>Plz</mat-label>
+        <input matInput formControlName="zip">
+      </mat-form-field>
+
+      <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
+        <mat-label>Ort</mat-label>
+        <input matInput formControlName="city">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Land</mat-label>
+        <mat-select formControlName="country">
+          <mat-option value="" disabled selected>Land wählen</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<mat-card [style.width.px]="960">
+
+  <!-- Titel -->
+    <mat-card-header>
+      <mat-card-title>RecruitMe Formular</mat-card-title>
+      <mat-card-subtitle>Das automatische Arbeitsvertrags-Tool.</mat-card-subtitle>
+    </mat-card-header>
+
+  <!-- Personalien -->
+  <mat-card-content>
+
+      <mat-vertical-stepper [linear]="true">
+        <app-vertrag-a></app-vertrag-a>
+
+        <mat-step [stepControl]="form.personalData">
+          <form [formGroup]="form.personalData">
+          <ng-template matStepLabel>Personalien</ng-template>
+          <app-personal></app-personal>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="form.workData">
+          <form [formGroup]="form.workData">
+          <ng-template matStepLabel>Arbeitsbedingungen</ng-template>
+          <app-work></app-work>
+          </form>
+        </mat-step>
+
+        <!-- Fertigstellung -->
+        <mat-step>
+          <ng-template matStepLabel>Fertigstellung</ng-template>
+          <p>Vielen Dank, alle benötigten Daten wurden erfasst. <br />
+            Generierung des Arbeitsvertrages wird per Knopfdruck gestartet.
+          </p>
+          <div>
+            <button mat-raised-button type="button" (click)="onSubmit()">Arbeitsvertrag Generieren</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+  </mat-card-content>
+</mat-card>
+
+<!--
+<mat-card [style.margin-top.rem]="3">
+  <mat-card-content>
+
+  </mat-card-content>
+</mat-card>-->
