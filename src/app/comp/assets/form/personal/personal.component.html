@@ -97,7 +97,7 @@
     <div class="full-width">
       <mat-form-field [style.width.%]="12" [style.margin-right.rem]="1.3">
         <mat-label>Plz</mat-label>
-        <input matInput formControlName="zip">
+        <input matInput formControlName="zip" type="number" minlength="4" maxlength="6">
       </mat-form-field>
 
       <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">

@@ -1,8 +1,5 @@
 import {Injectable, ViewChild, ViewContainerRef} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import jsPDF from "jspdf";
-import {VertragAComponent} from "./comp/assets/vertrag-a/vertrag-a.component";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +26,11 @@ export class FormService {
     birthDate: ['', [Validators.required, Validators.min(16)]],
     nationality: ['', Validators.required],
     permit: [''],
-    phone: ['', Validators.required],
+    phone: ['', [Validators.required, Validators.min(10)]],
     address: this.fb.group({
       street: ['', Validators.required],
       number: ['', Validators.required],
-      zip: ['', [Validators.required, Validators.minLength(4)]],
+      zip: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
       city: ['', Validators.required],
       country: ['', Validators.required],
     })
@@ -50,6 +47,53 @@ export class FormService {
     startDate: ['', Validators.required],
     endDate: [''],
   });
+
+  recruitingData = this.fb.group({
+    ownBills: ['', Validators.required],
+    foreignBills: [''],
+    VAT: [''],
+    wage: [''],
+    provision: [''],
+  });
+
+  public getContract(){
+    //Falls Kandidat eigene Rechnung stellt
+    if (this.recruitingData.value.ownBills == "1"){
+      //Falls die Rechnung aus dem Ausland gestellt wird
+      if(this.recruitingData.value.foreignBills == "1"){
+        return "RRAG"
+      }
+      //Falls Rechnung im Inland gestellt wird
+      else{
+        //Falls Kandidat Mehrwertsteuerpflichtig ist
+        if(this.recruitingData.value.VAT == "1"){
+          return "RRAG"
+        }
+        //Falls Kandidat nicht Mehrwertsteuerpflichtig ist
+        else{
+          return "RRSAG"
+        }
+      }
+    }
+    //Falls Kandidat keine eigene Rechnung stellt
+    else{
+      //Falls dem Kandidat ein Lohn gezahlt wird
+      if(this.recruitingData.value.wage == "1"){
+        return "RRSAG"
+      }
+      //Falls dem Kandidat kein Lohn gezahlt wird
+      else{
+        //Falls Provision erhalten wird
+        if (this.recruitingData.value.wage == "1"){
+          return "RRSAG"
+        }
+        //Falls keine Provision erhalten wird
+        else{
+          return "noMatch"
+        }
+      }
+    }
+  }
 
   public getWordsByGender(){
     switch (this.personalData.value.gender){

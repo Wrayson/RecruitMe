@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VertragBComponent } from './vertrag-b.component';
+import { NomatchComponent } from './nomatch.component';
 
-describe('VertragBComponent', () => {
-  let component: VertragBComponent;
-  let fixture: ComponentFixture<VertragBComponent>;
+describe('NomatchComponent', () => {
+  let component: NomatchComponent;
+  let fixture: ComponentFixture<NomatchComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [VertragBComponent]
+      declarations: [NomatchComponent]
     });
-    fixture = TestBed.createComponent(VertragBComponent);
+    fixture = TestBed.createComponent(NomatchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

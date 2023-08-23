@@ -1,16 +1,12 @@
 <mat-card [style.width.px]="960">
 
-  <!-- Titel -->
     <mat-card-header>
       <mat-card-title>RecruitMe Formular</mat-card-title>
       <mat-card-subtitle>Das automatische Arbeitsvertrags-Tool.</mat-card-subtitle>
     </mat-card-header>
 
-  <!-- Personalien -->
   <mat-card-content>
-
       <mat-vertical-stepper [linear]="true">
-        <app-vertrag-a></app-vertrag-a>
 
         <mat-step [stepControl]="form.personalData">
           <form [formGroup]="form.personalData">
@@ -26,7 +22,13 @@
           </form>
         </mat-step>
 
-        <!-- Fertigstellung -->
+        <mat-step [stepControl]="form.recruitingData">
+          <form [formGroup]="form.recruitingData">
+            <ng-template matStepLabel>Rekrutierungsdaten</ng-template>
+            <app-recruiting></app-recruiting>
+          </form>
+        </mat-step>
+
         <mat-step>
           <ng-template matStepLabel>Fertigstellung</ng-template>
           <p>Vielen Dank, alle benötigten Daten wurden erfasst. <br />
@@ -36,13 +38,7 @@
             <button mat-raised-button type="button" (click)="onSubmit()">Arbeitsvertrag Generieren</button>
           </div>
         </mat-step>
+
       </mat-vertical-stepper>
   </mat-card-content>
 </mat-card>
-
-<!--
-<mat-card [style.margin-top.rem]="3">
-  <mat-card-content>
-
-  </mat-card-content>
-</mat-card>-->

@@ -13,15 +13,16 @@ import {MatSelectCountryModule} from "@angular-material-extensions/select-countr
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from '@angular/common/http';
 
-import { FormComponent } from './form/form.component';
-import { WorkComponent } from './comp/work/work.component';
-import {PersonalComponent} from "./comp/personal/personal.component";
+import { FormComponent } from './comp/form/form.component';
+import { WorkComponent } from './comp/assets/form/work/work.component';
+import {PersonalComponent} from "./comp/assets/form/personal/personal.component";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import { VertragAComponent } from './comp/assets/vertrag-a/vertrag-a.component';
-import { VertragBComponent } from './comp/assets/vertrag-b/vertrag-b.component';
 import {MatButtonModule} from "@angular/material/button";
+import { RecruitingComponent } from './comp/assets/form/recruiting/recruiting.component';
+import { VersionComponent } from './comp/version/version.component';
+import { NomatchComponent } from './comp/assets/contracts/nomatch/nomatch.component';
 
 
 @NgModule({
@@ -30,8 +31,9 @@ import {MatButtonModule} from "@angular/material/button";
     FormComponent,
     PersonalComponent,
     WorkComponent,
-    VertragAComponent,
-    VertragBComponent,
+    RecruitingComponent,
+    VersionComponent,
+    NomatchComponent,
   ],
     imports: [
         BrowserModule,

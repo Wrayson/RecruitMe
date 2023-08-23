@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VertragAComponent } from './vertrag-a.component';
+import { VersionComponent } from './version.component';
 
-describe('VertragAComponent', () => {
-  let component: VertragAComponent;
-  let fixture: ComponentFixture<VertragAComponent>;
+describe('VersionComponent', () => {
+  let component: VersionComponent;
+  let fixture: ComponentFixture<VersionComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [VertragAComponent]
+      declarations: [VersionComponent]
     });
-    fixture = TestBed.createComponent(VertragAComponent);
+    fixture = TestBed.createComponent(VersionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

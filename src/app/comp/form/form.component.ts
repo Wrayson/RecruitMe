@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormService} from "../form.service";
+import {FormService} from "../../form.service";
 import {Route, Router} from "@angular/router";
 
 @Component({
@@ -10,8 +10,7 @@ export class FormComponent {
 
   //On Form submit, create Service for Contract creation.
   onSubmit() {
-    alert("submitted")
-    this.router.navigate(['/vertrag'])
+    //this.router.navigate(['/vertrag'])
   }
 
   constructor(public form:FormService, public router:Router) {
