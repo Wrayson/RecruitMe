@@ -14,26 +14,36 @@ export class FormService {
   }) viewContainerRef: ViewContainerRef
     | undefined
 
-
-
   //Each step has their own FormGroup.
   //This is needed because of stepControl.
   personalData = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]],
     gender: ['', Validators.required],
     birthDate: ['', [Validators.required, Validators.min(16)]],
     nationality: ['', Validators.required],
     permit: [''],
     phone: ['', [Validators.required, Validators.min(10)]],
+    email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$')]],
+    ssNumber: ['', Validators.required],
+    civil: ['', Validators.required],
+    children: [,[Validators.required, Validators.max(10)]],
     address: this.fb.group({
       street: ['', Validators.required],
-      number: ['', Validators.required],
-      zip: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
+      number: [,[Validators.required, Validators.min(1)]],
+      zip: [, [Validators.required, Validators.minLength(4), Validators.maxLength(6)]],
       city: ['', Validators.required],
       country: ['', Validators.required],
     })
+  });
+
+  familyData = this.fb.group({
+    partnerFN: ['', Validators.required],
+    partnerLN: ['', Validators.required],
+    partnerBD: ['', Validators.required],
+    child1FN: ['', Validators.required],
+    child1LN: ['', Validators.required],
+    child1BD: ['', Validators.required],
   });
 
   workData = this.fb.group({
@@ -55,6 +65,15 @@ export class FormService {
     wage: [''],
     provision: [''],
   });
+
+  public getFamilyNeeded(){
+    // @ts-ignore
+    if (this.personalData.value.civil=="married" || +this.personalData.value.children >= 1){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   public getContract(){
     //Falls Kandidat eigene Rechnung stellt

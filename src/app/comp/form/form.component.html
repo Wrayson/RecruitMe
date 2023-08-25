@@ -15,6 +15,20 @@
           </form>
         </mat-step>
 
+        <mat-step [stepControl]="form.familyData" *ngIf="form.getFamilyNeeded()">
+          <form [formGroup]="form.familyData">
+            <ng-template matStepLabel>Familie</ng-template>
+            <app-family></app-family>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="form.recruitingData">
+          <form [formGroup]="form.recruitingData">
+            <ng-template matStepLabel>Rekrutierung</ng-template>
+            <app-recruiting></app-recruiting>
+          </form>
+        </mat-step>
+
         <mat-step [stepControl]="form.workData">
           <form [formGroup]="form.workData">
           <ng-template matStepLabel>Arbeitsbedingungen</ng-template>
@@ -22,10 +36,10 @@
           </form>
         </mat-step>
 
-        <mat-step [stepControl]="form.recruitingData">
-          <form [formGroup]="form.recruitingData">
-            <ng-template matStepLabel>Rekrutierungsdaten</ng-template>
-            <app-recruiting></app-recruiting>
+        <mat-step [stepControl]="form.workData">
+          <form [formGroup]="form.workData">
+            <ng-template matStepLabel>Vertragsbedingungen</ng-template>
+            <app-work></app-work>
           </form>
         </mat-step>
 

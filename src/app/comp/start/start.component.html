@@ -1,0 +1,52 @@
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+mat-card {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  padding: 10px 5px 0 5px;
+  transition: all .2s ease-in-out;
+}
+
+mat-card:hover{
+  transform: scale(1.2);
+}
+
+#spacer {
+  width: 150px;
+  display: inline-block;
+}
+.wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+mat-icon {
+  margin-top: 100px;
+  width: 80px;
+  height: 80px;
+  font-size: 80px;
+}
+
+
+</style>
+<div class="wrapper">
+  <a routerLink="onboarding">
+    <mat-card>
+      <mat-card-title>Onboarding</mat-card-title>
+      <mat-card-subtitle>Neue Kandidaten in der Datenbank erfassen.</mat-card-subtitle>
+      <mat-icon>post_add</mat-icon>
+    </mat-card>
+  </a>
+  <div id="spacer"></div>
+  <a routerLink="viewer">
+    <mat-card>
+      <mat-card-title>Recruiting</mat-card-title>
+      <mat-card-subtitle>Arbeitsverträge bestehender Kandidaten generieren.</mat-card-subtitle>
+      <mat-icon>description</mat-icon>
+    </mat-card>
+  </a>
+</div>

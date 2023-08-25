@@ -23,6 +23,10 @@ import {MatButtonModule} from "@angular/material/button";
 import { RecruitingComponent } from './comp/assets/form/recruiting/recruiting.component';
 import { VersionComponent } from './comp/version/version.component';
 import { NomatchComponent } from './comp/assets/contracts/nomatch/nomatch.component';
+import { StartComponent } from './comp/start/start.component';
+import {MatIconModule} from "@angular/material/icon";
+import { ViewerComponent } from './comp/viewer/viewer.component';
+import { FamilyComponent } from './comp/assets/form/family/family.component';
 
 
 @NgModule({
@@ -34,24 +38,28 @@ import { NomatchComponent } from './comp/assets/contracts/nomatch/nomatch.compon
     RecruitingComponent,
     VersionComponent,
     NomatchComponent,
+    StartComponent,
+    ViewerComponent,
+    FamilyComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        MatCardModule,
-        MatStepperModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        CommonModule,
-        MatSelectCountryModule.forRoot('de'),
-        HttpClientModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatButtonModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatCardModule,
+    MatStepperModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatSelectCountryModule.forRoot('de'),
+    HttpClientModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,41 @@
+<style>
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .full-width {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .full-width:first-child {
+    margin-top: 2rem;
+  }
+  mat-form-field {
+    height: 70px;
+    font-size: 14px;
+    appearance: none;
+  }
+  mat-form-field * {
+    font-size: 14px;
+  }
+  mat-label {
+    font-size: 15px;
+  }
+</style>
+<div>
+  <div class="full-width">
+    <mat-card-subtitle>1. Kind</mat-card-subtitle>
+    <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+      <mat-label>Vorname</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field [style.width.%]="40">
+      <mat-label>Nachname</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+</div>

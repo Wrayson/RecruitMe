@@ -4,7 +4,7 @@ import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html'
+  templateUrl: './form.component.html',
 })
 export class FormComponent {
 

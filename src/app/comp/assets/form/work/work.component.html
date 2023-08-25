@@ -44,11 +44,14 @@
     <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
       <mat-label>Bruttojahresgehalt bei 100%</mat-label>
       <input matInput formControlName="salary" type="number" max="1000000">
+      <span matTextPrefix>CHF&nbsp;</span>
+      <span matTextSuffix>.-</span>
     </mat-form-field>
 
     <mat-form-field [style.width.%]="20">
       <mat-label>Pensum in %</mat-label>
       <input matInput formControlName="workload" type="number" max="100">
+      <span matTextSuffix>%</span>
     </mat-form-field>
     <div id="wage" [style.margin-left.rem]="2">
       <p>Bruttomonatslohn <br />(ohne Bonus): CHF {{ form.getWageBySalary() }}.-</p>
