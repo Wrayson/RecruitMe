@@ -6,12 +6,12 @@ import {StartComponent} from "./comp/start/start.component";
 import {ViewerComponent} from "./comp/viewer/viewer.component";
 
 const routes: Routes = [
-  {path: 'start' , component: StartComponent},
-  {path: 'onboarding' , component: FormComponent},
-  {path: 'viewer' , component: ViewerComponent},
-  {path: 'version' , component: VersionComponent},
-  {path: '', component: StartComponent},
-  {path: '**', component: StartComponent},
+  {path: 'start' , component: StartComponent, title: "rockstar* RecruitMe"},
+  {path: 'onboarding' , component: FormComponent, title: "rockstar* RecruitMe - Onboarding"},
+  {path: 'viewer' , component: ViewerComponent, title: "rockstar* RecruitMe - Viewer"},
+  {path: 'version' , component: VersionComponent, title: "rockstar* RecruitMe - Version"},
+  {path: '', component: StartComponent, title: "rockstar* RecruitMe"},
+  {path: '**', component: StartComponent, title: "rockstar* RecruitMe"},
 ];
 
 @NgModule({

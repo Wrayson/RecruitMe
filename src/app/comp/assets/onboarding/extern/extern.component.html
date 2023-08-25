@@ -1,0 +1,118 @@
+<style>
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .full-width {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .full-width:first-child {
+    margin-top: 2rem;
+  }
+  mat-form-field {
+    height: 70px;
+    font-size: 14px;
+    appearance: none;
+  }
+  mat-form-field * {
+    font-size: 14px;
+  }
+  mat-label {
+    font-size: 15px;
+  }
+  mat-form-field mat-hint{
+    margin-top: -5px;
+    font-size: 10px;
+  }
+</style>
+<div>
+
+  <div class="full-width">
+    <mat-card-subtitle>Firmenangaben</mat-card-subtitle>
+    <mat-form-field [style.width.%]="18" [style.margin-right.rem]="1" floatLabel="always">
+      <mat-label>CHE-Nummer</mat-label>
+      <input matInput formControlName="cheNum" placeholder="123.456.789" che maxlength="11">
+      <span matTextPrefix>CHE-</span>
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="20" [style.margin-right.rem]="2">
+      <mat-label>Unternehmensart</mat-label>
+      <mat-select required formControlName="companyType">
+        <mat-option value="" disabled selected>Art wählen</mat-option>
+        <mat-option value="omb">Einzelunternehmen</mat-option>
+        <mat-option value="gmbh">GmbH</mat-option>
+        <mat-option value="ag">AG</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="40" [style.margin-right.rem]="1">
+      <mat-label>Firmenname</mat-label>
+      <input matInput formControlName="companyName">
+    </mat-form-field>
+  </div>
+
+    <div class="full-width" formGroupName="address">
+      <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+        <mat-label>Strasse</mat-label>
+        <input matInput formControlName="street">
+      </mat-form-field>
+
+      <mat-form-field [style.width.%]="10">
+        <mat-label>Nr.</mat-label>
+        <input matInput formControlName="number">
+      </mat-form-field>
+    </div>
+
+    <div class="full-width" formGroupName="address">
+      <mat-form-field [style.width.%]="12.5" [style.margin-right.rem]="1.3">
+        <mat-label>Plz</mat-label>
+        <input matInput type="number" formControlName="zip" minlength="4" maxlength="6">
+      </mat-form-field>
+
+      <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
+        <mat-label>Ort</mat-label>
+        <input matInput formControlName="city">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Land</mat-label>
+        <mat-select formControlName="country" required>
+          <mat-option value="" disabled selected>Land wählen</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country.code">{{country.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+  <div formGroupName="contact">
+    <div class="full-width">
+      <mat-card-subtitle>Kontaktperson</mat-card-subtitle>
+      <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
+        <mat-label>Vorname</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field [style.width.%]="40">
+        <mat-label>Nachname</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+
+    <div class="full-width">
+      <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2" floatLabel="always">
+        <mat-label>Telefonnummer</mat-label>
+        <input matInput formControlName="phoneNumber" phone maxlength="15">>
+        <span matTextPrefix>+</span>
+      </mat-form-field>
+
+      <mat-form-field [style.width.%]="40">
+        <mat-label>E-Mail-Adresse</mat-label>
+        <input type="email" matInput formControlName="email">
+      </mat-form-field>
+    </div>
+  </div>
+
+</div>

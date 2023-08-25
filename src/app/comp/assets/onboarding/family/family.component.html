@@ -1,0 +1,67 @@
+<style>
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  .full-width {
+    width: 100%;
+    margin-left: 2rem;
+  }
+  .full-width:first-child {
+    margin-top: 2rem;
+  }
+  mat-form-field {
+    height: 70px;
+    font-size: 14px;
+    appearance: none;
+  }
+  mat-form-field * {
+    font-size: 14px;
+  }
+  mat-label {
+    font-size: 15px;
+  }
+</style>
+<div id="wrapper" [formGroup]="form.familyData">
+  <div class="full-width" *ngIf="form.personalData.value.civilStatus=='married'" formGroupName="partner">
+    <mat-card-subtitle>Partner</mat-card-subtitle>
+    <mat-form-field [style.width.%]="30" [style.margin-right.rem]="1">
+      <mat-label>Vorname</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="30" [style.margin-right.rem]="2">
+      <mat-label>Nachname</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="18">
+      <mat-label>Geburtstag</mat-label>
+      <input matInput formControlName="birthDate" type="date">
+    </mat-form-field>
+  </div>
+
+  <div class="full-width" *ngFor="let i of form.getNumChildren()" formGroupName="children">
+      <div formGroupName="child{{i+1}}">
+        <mat-card-subtitle>{{i+1}}. Kind</mat-card-subtitle>
+        <mat-form-field [style.width.%]="30" [style.margin-right.rem]="1">
+          <mat-label>Vorname</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+
+        <mat-form-field [style.width.%]="30" [style.margin-right.rem]="2">
+          <mat-label>Nachname</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+
+        <mat-form-field [style.width.%]="18">
+          <mat-label>Geburtstag</mat-label>
+          <input matInput formControlName="birthDate" type="date">
+        </mat-form-field>
+      </div>
+  </div>
+</div>

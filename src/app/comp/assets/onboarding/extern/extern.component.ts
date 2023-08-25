@@ -1,10 +1,11 @@
-import {Component, Input, SkipSelf} from '@angular/core';
+import {Component, SkipSelf} from '@angular/core';
 import {ControlContainer} from "@angular/forms";
 import {FormService} from "../../../../form.service";
+import {countries} from "../../countrylist/country-data-store";
 
 @Component({
-  selector: 'app-work',
-  templateUrl: './work.component.html',
+  selector: 'app-extern',
+  templateUrl: './extern.component.html',
   viewProviders: [{
     provide: ControlContainer,
     useFactory: (container: ControlContainer) => container,
@@ -12,9 +13,9 @@ import {FormService} from "../../../../form.service";
   }],
   providers: []
 })
-export class WorkComponent {
+export class ExternComponent {
+  public countries:any = countries;
 
   constructor(public form:FormService) {
   }
-
 }

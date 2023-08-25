@@ -14,19 +14,23 @@ import {CommonModule} from "@angular/common";
 import {HttpClientModule} from '@angular/common/http';
 
 import { FormComponent } from './comp/form/form.component';
-import { WorkComponent } from './comp/assets/form/work/work.component';
-import {PersonalComponent} from "./comp/assets/form/personal/personal.component";
+import { InternComponent } from './comp/assets/onboarding/intern/intern.component';
+import {PersonalComponent} from "./comp/assets/onboarding/personal/personal.component";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatButtonModule} from "@angular/material/button";
-import { RecruitingComponent } from './comp/assets/form/recruiting/recruiting.component';
+import { RecruitingComponent } from './comp/assets/onboarding/recruiting/recruiting.component';
 import { VersionComponent } from './comp/version/version.component';
 import { NomatchComponent } from './comp/assets/contracts/nomatch/nomatch.component';
 import { StartComponent } from './comp/start/start.component';
 import {MatIconModule} from "@angular/material/icon";
 import { ViewerComponent } from './comp/viewer/viewer.component';
-import { FamilyComponent } from './comp/assets/form/family/family.component';
+import { FamilyComponent } from './comp/assets/onboarding/family/family.component';
+import { AhvDirective } from './comp/assets/directives/ahv.directive';
+import { ExternComponent } from './comp/assets/onboarding/extern/extern.component';
+import { CheDirective } from './comp/assets/directives/che.directive';
+import { PhoneDirective } from './comp/assets/directives/phone.directive';
 
 
 @NgModule({
@@ -34,13 +38,17 @@ import { FamilyComponent } from './comp/assets/form/family/family.component';
     AppComponent,
     FormComponent,
     PersonalComponent,
-    WorkComponent,
+    InternComponent,
     RecruitingComponent,
     VersionComponent,
     NomatchComponent,
     StartComponent,
     ViewerComponent,
     FamilyComponent,
+    AhvDirective,
+    ExternComponent,
+    CheDirective,
+    PhoneDirective,
   ],
   imports: [
     BrowserModule,

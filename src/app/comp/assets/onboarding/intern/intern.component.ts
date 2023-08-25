@@ -3,8 +3,8 @@ import {ControlContainer} from "@angular/forms";
 import {FormService} from "../../../../form.service";
 
 @Component({
-  selector: 'app-family',
-  templateUrl: './family.component.html',
+  selector: 'app-intern',
+  templateUrl: './intern.component.html',
   viewProviders: [{
     provide: ControlContainer,
     useFactory: (container: ControlContainer) => container,
@@ -12,7 +12,9 @@ import {FormService} from "../../../../form.service";
   }],
   providers: []
 })
-export class FamilyComponent {
+export class InternComponent {
+
   constructor(public form:FormService) {
   }
+
 }

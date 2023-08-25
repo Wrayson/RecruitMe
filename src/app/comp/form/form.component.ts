@@ -1,18 +1,21 @@
-import {Component, Input} from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component} from '@angular/core';
 import {FormService} from "../../form.service";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-onboarding',
   templateUrl: './form.component.html',
 })
-export class FormComponent {
+export class FormComponent implements AfterViewChecked{
 
-  //On Form submit, create Service for Contract creation.
   onSubmit() {
     //this.router.navigate(['/vertrag'])
   }
 
-  constructor(public form:FormService, public router:Router) {
+  constructor(public form:FormService, public router:Router, private readonly changeDetectorRef: ChangeDetectorRef) {
+  }
+
+  ngAfterViewChecked(): void {
+    this.changeDetectorRef.detectChanges();
   }
 }

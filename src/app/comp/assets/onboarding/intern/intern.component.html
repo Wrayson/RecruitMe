@@ -1,4 +1,12 @@
 <style>
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
   .full-width {
     width: 100%;
     margin-left: 2rem;
@@ -22,7 +30,10 @@
   }
   #wage p {
     font-size: 14px;
-
+  }
+  mat-form-field mat-hint{
+    margin-top: -5px;
+    font-size: 10px;
   }
 </style>
 
@@ -31,7 +42,7 @@
   <div class="full-width">
     <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
       <mat-label>Firma</mat-label>
-      <input matInput formControlName="company">
+      <input matInput formControlName="companyName">
     </mat-form-field>
 
     <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2">
@@ -41,11 +52,10 @@
   </div>
 
   <div class="full-width">
-    <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2">
+    <mat-form-field [style.width.%]="25" [style.margin-right.rem]="2" floatLabel="always">
       <mat-label>Bruttojahresgehalt bei 100%</mat-label>
       <input matInput formControlName="salary" type="number" max="1000000">
       <span matTextPrefix>CHF&nbsp;</span>
-      <span matTextSuffix>.-</span>
     </mat-form-field>
 
     <mat-form-field [style.width.%]="20">
@@ -91,7 +101,7 @@
       </div>
       <div>
         <mat-radio-button value="temp" [style.margin-right.rem]="9">Befristet</mat-radio-button>
-        <mat-form-field [style.width.%]="18" *ngIf="form?.workData?.value?.jobType=='temp'" required>
+        <mat-form-field [style.width.%]="18" *ngIf="form?.internData?.value?.jobType=='temp'" required>
           <mat-label>Enddatum</mat-label>
           <input matInput formControlName="endDate" type="date">
         </mat-form-field>
