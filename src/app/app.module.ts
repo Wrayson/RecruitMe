@@ -27,6 +27,7 @@ import { StartComponent } from './comp/start/start.component';
 import {MatIconModule} from "@angular/material/icon";
 import { ViewerComponent } from './comp/viewer/viewer.component';
 import { FamilyComponent } from './comp/assets/form/family/family.component';
+import { SeparatorDirective } from './comp/assets/directives/separator.directive';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { FamilyComponent } from './comp/assets/form/family/family.component';
     StartComponent,
     ViewerComponent,
     FamilyComponent,
+    SeparatorDirective,
   ],
   imports: [
     BrowserModule,

@@ -94,7 +94,7 @@
   <div class="full-width">
     <mat-form-field [style.width.%]="40" [style.margin-right.rem]="2" floatLabel="always">
       <mat-label>AHV-Nummer</mat-label>
-      <input matInput formControlName="ssNumber" type="number" max="10" min="10" placeholder="1234.5678.97">
+      <input matInput formControlName="ssNumber" pattern="\d*" maxlength="10" minlength="10" placeholder="1234.5678.97">
       <span matTextPrefix>756.</span>
     </mat-form-field>
 

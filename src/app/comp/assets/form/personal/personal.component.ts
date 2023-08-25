@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, Inject, Injector, Input, NgModule, SkipSelf} from '@angular/core';
+import {Component, SkipSelf} from '@angular/core';
 import {ControlContainer, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher, MAT_DATE_LOCALE} from "@angular/material/core";
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {countries} from "../../countrylist/country-data-store";
 import {FormService} from "../../../../form.service";
+import { SeparatorDirective } from "../../directives/separator.directive";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,6 +26,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class PersonalComponent {
   public countries:any = countries;
   public allowance:boolean = false;
+
+
+
 
   public setSelectedCountry(value: any) {
     if (value === "Schweiz") {

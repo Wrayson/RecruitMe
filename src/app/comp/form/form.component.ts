@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormService} from "../../form.service";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form',
