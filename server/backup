@@ -1,0 +1,67 @@
+person: {
+    firstName: req.body.personal.firstName,
+    lastName: req.body.personal.lastName,
+    gender: req.body.personal.gender,
+    birthDate: req.body.personal.birthDate,
+    nationality: req.body.personal.nationality,
+    permit: req.body.personal.permit,
+    email: req.body.personal.email,
+    phoneNumber: req.body.personal.phoneNumber,
+    ahvNumber: req.body.personal.ahvNumber,
+    marital: req.body.personal.maritalStatus,
+    numChildren: req.body.personal.numChildren,
+    address: {
+        streetName: req.body.personal.address.streetName,
+        streetNum: req.body.personal.address.streetNum,
+        zipCode: req.body.personal.address.zipCode,
+        cityName: req.body.personal.address.cityName,
+        country: req.body.personal.address.country
+    }
+},
+
+work: {
+    che: req.body.work.che,
+    companyName: req.body.work.companyName,
+    companyType: req.body.work.companyType,
+    address: {
+        streetName: req.body.work.address.streetName,
+        streetNum: req.body.work.address.streetNum,
+        zipCode: req.body.work.address.zipCode,
+        cityName: req.body.work.address.cityName,
+        country: req.body.work.address.country
+    },
+    contact: {
+        firstName: req.body.work.contact.firstName,
+        lastName: req.body.work.contact.lastName,
+        email: req.body.work.contact.email,
+        phoneNumber: req.body.work.contact.phoneNumber,
+    },
+    jobName: req.body.work.jobName,
+    salary: 1000,
+    workload: 5,
+    probationPeriod: req.body.work.jobName,
+    noticePeriod: req.body.work.jobName,
+    employmentType: req.body.work.jobName,
+    startDate: "2002-08-10",
+    endDate: "2002-08-10"
+
+
+},
+
+recruitment: {
+    bill: req.body.recruitment.bill,
+    foreignBill: req.body.recruitment.foreignBill,
+    VAT: req.body.recruitment.VAT,
+    wage: req.body.recruitment.wage,
+    provision: req.body.recruitment.provision
+},
+
+
+recruitment: {
+    bill: req.body.recruitment.bill,
+    foreignBill: req.body.recruitment.foreignBill,
+    VAT: req.body.recruitment.VAT,
+    wage: req.body.recruitment.wage,
+    provision: req.body.recruitment.provision
+}
+
